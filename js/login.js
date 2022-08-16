@@ -19,3 +19,7 @@ document.addEventListener("click", (e) => {
 )
 }
 ;
+
+function google() {
+    alert("Has accedido con google");
+}
