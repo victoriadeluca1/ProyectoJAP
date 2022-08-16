@@ -5,33 +5,30 @@ let productsArray = [];
  function showProducts(){
     
     let htmlContentToAppend = "";
-    for(let i = 0; i < productsArray.length; i++){
-        let list = productsArray[i];
-
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
-
+    for(let i = 0; i < productsArray.products.length; i++){
+        let category = productsArray.products[i];
             htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+            <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
-                        <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
+                        <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">${category.name}</h4>
-                            <small class="text-muted">${category.productCount} artículos</small>
+                            <small class="text-muted">${category.soldCount} artículos</small>
                         </div>
                         <p class="mb-1">${category.description}</p>
                     </div>
                 </div>
             </div>
             `
+            
+        document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
         }
 
-        document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
-}
+
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CATEGORY_CARS).then(function(resultObj){
@@ -43,3 +40,4 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 console.log(productsArray)
+

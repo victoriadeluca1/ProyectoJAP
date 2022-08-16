@@ -36,10 +36,12 @@ function sortCategories(criteria, array){
     return result;
 }
 
+//Redirecciona al usuario al hacer click en un producto
 function setCatID(id) {
     localStorage.setItem("catID", id);
     window.location = "products.html"
 }
+
 //Muestra las categorias en el html
 function showCategoriesList(){
 
@@ -142,3 +144,4 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+console.log(currentCategoriesArray)
