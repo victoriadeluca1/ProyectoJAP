@@ -1,4 +1,4 @@
-const email = document.getElementById( 'userEmail');
+let email = document.getElementById('userEmail');
 const password = document.getElementById( "userPassword");
 const btn = document.getElementById( "btn");
 // let input = document.getElementsByTagName("input");
@@ -14,12 +14,20 @@ document.addEventListener("click", (e) => {
      errorMessagePassword.innerHTML = errorMessages[1];
     } else {
         window.location.href = "inicio.html";
+        setEmail();
     }
 }
 )
-}
-;
+};
 
-function google() {
-    alert("Has accedido con google");
+
+ function redireccionar() {
+     alert("Has accedido con google");
+     window.location.href = "inicio.html";
+ }
+
+function setEmail() {
+    let emailValue = document.getElementById('userEmail').value;
+    localStorage.setItem("Email", emailValue);
 }
+

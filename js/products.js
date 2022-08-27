@@ -1,14 +1,14 @@
 
 let productsArray = [];
+let CATEGORY = "https://japceibal.github.io/emercado-api/cats_products/" + localStorage.getItem("catID") + ".json"; 
 
 //Muestra los productos en el div"product-list-container"
  function showProducts(){
-    
     let htmlContentToAppend = "";
     for(let i = 0; i < productsArray.products.length; i++){
         let category = productsArray.products[i];
             htmlContentToAppend += `
-            <div class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
@@ -31,13 +31,10 @@ let productsArray = [];
 
 
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(CATEGORY_CARS).then(function(resultObj){
+    getJSONData(CATEGORY).then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data
             showProducts()
         }
     });
 });
-
-console.log(productsArray)
-
