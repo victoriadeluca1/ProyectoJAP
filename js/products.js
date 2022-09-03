@@ -1,14 +1,17 @@
 
 let currentProductsArray = [];
+let filterButton = document.getElementById("rangeFilterCount");
+let searchButton = document.getElementById("searchBtn");
+
 
 //Muestra los productos en div"product-list-container"
  function showProducts(array){
- 
+
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
         let products = array[i];
             htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setCatID(${products.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
@@ -23,7 +26,6 @@ let currentProductsArray = [];
                 </div>
             </div>
             `
-            
             document.getElementById("subtitle").innerHTML = `Verás aquí todos los productos de la categoría ${currentProductsArray.catName}`;
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
         }
@@ -33,21 +35,13 @@ function setCatID(id) {
         localStorage.setItem("catID", id);
     }
     
-/*     function filterAndShowCategories(a,b) {
-        let assortedProducts = currentProductsArray  
-
-        if (){
-            assortedProducts = assortedProducts.sort(product => product)
-        }
-        
-    } */
 
 document.addEventListener("DOMContentLoaded", function(){
     getJSONData(CATEGORY).then(function(resultObj){
         if (resultObj.status === "ok"){
-            currentProductsArray = resultObj.data
+            currentProductsArray = resultObj.data;
             showProducts(currentProductsArray.products)
-        }
+        };
     });
     document.getElementById("sortByRel").addEventListener("click", function(){
         showProducts(currentProductsArray.products.sort(sortByRelevance));
@@ -58,11 +52,35 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("sortDesc").addEventListener("click", function(){
         showProducts(currentProductsArray.products.sort(sortByCostDesc));
 });
+    document.getElementById("rangeFilterCount").addEventListener("click", function(){
+        let min = document.getElementById("rangeFilterCountMin");
+        let max = document.getElementById("rangeFilterCountMax");
+       if (min.value != "") {
+           filteredProducts = currentProductsArray.products.filter(products => products.cost > min.value);
+        }
+        if (max.value != "") {
+            filteredProducts = currentProductsArray.products.filter(products => products.cost < max.value);
+         }
+            showProducts(filteredProducts)
+});
+    searchButton.addEventListener("click", function(){
+      let searchBar = document.getElementById("search")
+      if (searchBar.value != "") {
+        filteredProducts = currentProductsArray.products.filter(products => products.name.toLowerCase().includes(searchBar.value.toLowerCase()))
+     }
+       
+
+    showProducts(filteredProducts);
+});
+    document.getElementById("clearRangeFilter").addEventListener("click", function(){
+        document.getElementById("rangeFilterCountMin").value = "";
+        document.getElementById("rangeFilterCountMax").value = "";
+            showProducts(currentProductsArray.products);
+});
 });
 
 
 //Sorting functions
-
 function sortByCostAsc(a,b){
     return a.cost - b.cost;
 }
@@ -70,5 +88,5 @@ function sortByCostDesc(a,b){
     return b.cost - a.cost;
 }
 function sortByRelevance(a,b){ 
- return a.soldCount - b.soldCount;
+    return b.soldCount - a.soldCount;
 }
