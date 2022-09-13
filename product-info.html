@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -39,9 +40,40 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <p>Funcionalidad en desarrollo</p>
+<!-- product  -->
+      <div class="container" id="product-container">
+
       </div>
+      <div class="container" id="product-images-container">
+        
+
+      </div>
+      <!-- lol, test container for scores. -->
+      <div class="container"  id="scores"></div>
+
+      <div  class="container"></div>
+      <hr>
+        <h3>Comments</h3>
+        <ul id="comments">
+
+        </ul>
+    </div>
+    <div class="container .container-sm">
+        <h3>Comentar</h3>
+        <label for="comentar">Tu opinion:</label><br>
+        <textarea  id="comentar" class="form-control" rows="3"></textarea>
+        <br>
+        <label for="score">Tu puntuacion</label>
+        <select name="score" class="form-control" id="commentscore">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select> 
+        <br>
+        <button id="sendComment" class="btn btn-primary">Enviar</button>
     </div>
   </main>
   <footer class="text-muted">
@@ -65,6 +97,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/login.js"></script>
 </body>
 
 </html>

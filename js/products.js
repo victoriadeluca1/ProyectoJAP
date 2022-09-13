@@ -11,7 +11,7 @@ let searchButton = document.getElementById("searchBtn");
     for(let i = 0; i < array.length; i++){
         let products = array[i];
             htmlContentToAppend += `
-            <div onclick="setCatID(${products.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProductID(${products.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
@@ -34,8 +34,12 @@ let searchButton = document.getElementById("searchBtn");
 function setCatID(id) {
         localStorage.setItem("catID", id);
     }
-    
 
+    function setProductID(id) {
+localStorage.setItem("productID", id);
+window.location = "product-info.html"
+    }
+    
 document.addEventListener("DOMContentLoaded", function(){
     getJSONData(CATEGORY).then(function(resultObj){
         if (resultObj.status === "ok"){
