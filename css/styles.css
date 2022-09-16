@@ -5,6 +5,9 @@
   font-family: 'Raleway', serif !important;
 }
 
+.far  {
+  color: rgb(216, 216, 216);
+}
 .jumbotron .display-4 {
   font-weight: bold;
 }

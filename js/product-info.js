@@ -48,24 +48,21 @@ function showProduct(array){
 
 function showComments(array) { 
     let htmlContentToAppend = "";
-    let commentScore = array.score;
-    let htmlScore = "";
-      
-    for (let i = 0; i < array.length; i++) {
-        
+     array.forEach(comment => {
+        let commentScore = comment.score;
+        let htmlScore = "";
       for (let i=1; i <= commentScore; i++){ //si 1 es <= a la puntuacion agrega una estrella
           htmlScore += `<i class="fas fa-star checked"></i>`
       }
 
       for (let i= commentScore+1; i <= 5; i++){
-          htmlScore += `<i class="far fa-star"></i>;`
+          htmlScore += `<i class="far fa-star"></i>`
       }  
-                  let comment = array[i];
                   htmlContentToAppend += `
                   <li class="list-group-item"> 
                   <b>${comment.user}</b><small> ${comment.dateTime}</small> <span>${htmlScore}</span>
                   <br>${comment.description}</li>`
-    }
+     });
         document.getElementById("comments").innerHTML = htmlContentToAppend;
 };
             
@@ -86,13 +83,22 @@ function showComments(array) {
     document.getElementById("sendComment").addEventListener("click", function(){
             let comment = document.getElementById("comentar");
             let commentscore = document.getElementById("commentscore").value;
-            let currentDateTime = Date();
+            const date = new Date();
+            const today = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() +":" + date.getSeconds();
+            let htmlScore = "";
+            if (commentscore > 0) 
+            {for (let i=1; i <= commentscore; i++){ //si 1 es <= a la puntuacion agrega una estrella
+                htmlScore += `<i class="fas fa-star checked"></i>`
+            }
+            for (let i= commentscore+1; i <= 5; i++){
+                htmlScore += `<i class="far fa-star"></i>`
+            }};
     let newComment = "";
     newComment +=
         `<li class="list-group-item"> 
-                  <b>${localStorage.getItem("Email")}</b><small> ${currentDateTime}</small}</small> <span>${commentscore}</span>
+                  <b>${localStorage.getItem("Email")}</b><small> ${today}</small}</small> <span>${htmlScore}</span>
                   <br>${comment.value}</li>`
-                  document.getElementById("comments").innerHTML += newComment;
+    document.getElementById("comments").innerHTML += newComment;
 })
 showComments(commentsArray);
     });
