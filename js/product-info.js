@@ -1,15 +1,15 @@
 let productArray = [];
 let commentsArray = [];
-//🗿;
+let comment = document.getElementById("comentar");
 
 //Muestra el producto seleccionado
 function showProduct(array){ 
      
      let htmlContentToAppend = `
-                <b><h5>${array.name}</h5></b>
+                <h5 style="padding-top: 10px"><b>${array.name}</b></h5>
                 <hr/>
                 <b class="font-weight-bold">Precio </b> <br>
-                <p>${array.cost}</p>
+                <p>$${array.cost}</p>
                 <b class="font-weight-bold">Descripción</b><br>
                 <p>${array.description}</p>
                 <b class="font-weight-bold">Categoría</b><br>
@@ -22,29 +22,6 @@ function showProduct(array){
             }
         document.getElementById("product-container").innerHTML = htmlContentToAppend;
         }
-
-//Muestra los commentarios2
-// function showComments(array) { 
-//     let commentScore = array.score;
-//     let htmlScore = "";
-//     for (let i=1; i <= commentScore; i++){
-//         htmlScore += `<i class="fas fa-star checked"></i>`
-//     }
-//     for (let i= commentScore+1; i <= 5; i++){
-//         htmlScore += `<i class="far fa-star"></i>;`
-//     }
-
-//         let htmlContentToAppend = "";
-//             for (var i = 0; i < array.length; i++) {
-//                 let comments = array[i];
-//                 htmlContentToAppend += `
-//                 <li class="list-group-item"> 
-//                 <b>${comments.user} </b><small>${comments.dateTime}</small> <span>${htmlScore}</span>
-//                 <br>${comments.description}</li>
-//                 `
-//             }
-//                 document.getElementById("comments").innerHTML = htmlContentToAppend;
-//             }
 
 function showComments(array) { 
     let htmlContentToAppend = "";
@@ -80,19 +57,26 @@ function showComments(array) {
                 commentsArray = resultObj.data;
             };
 
+            
+          
+           
     document.getElementById("sendComment").addEventListener("click", function(){
-            let comment = document.getElementById("comentar");
+        
+           
             let commentscore = document.getElementById("commentscore").value;
             const date = new Date();
             const today = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() +":" + date.getSeconds();
             let htmlScore = "";
-            if (commentscore > 0) 
-            {for (let i=1; i <= commentscore; i++){ //si 1 es <= a la puntuacion agrega una estrella
+            
+
+            for (let i=1; i <= commentscore; i++){ //si 1 es <= a la puntuacion agrega una estrella
                 htmlScore += `<i class="fas fa-star checked"></i>`
-            }
-            for (let i= commentscore+1; i <= 5; i++){
-                htmlScore += `<i class="far fa-star"></i>`
-            }};
+                for (let i= commentscore+1; i <= 5; i++){
+                    htmlScore += `<i class="far fa-star"></i>`
+                };
+            } 
+            
+
     let newComment = "";
     newComment +=
         `<li class="list-group-item"> 
@@ -102,3 +86,12 @@ function showComments(array) {
 })
 showComments(commentsArray);
     });
+
+    function enableButton() {
+        if (comment.value === "") {
+            document.querySelector("#sendComment").disabled = true;
+          }
+          else {
+            document.querySelector("#sendComment").disabled = false;
+          }
+    }enableButton()

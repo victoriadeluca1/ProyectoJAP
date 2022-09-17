@@ -13,6 +13,7 @@
     body {
       background-color: rgb(248, 249, 250);
       text-align: center;
+      justify-content: center;
     }
   </style>
 </head>
@@ -34,17 +35,18 @@
           <div class="text-danger" id="errorMessagePassword"></div>
         </div>
       </div>
-    </div>
     </form>
-    <div  class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
+     <div class="d-flex flex-column" style="width:fit-content"> 
     <button id="btn" class="btn btn-primary" onclick="login()">Ingresar</button>
-    <br>
-    <div id="g_id_onload"
+    <div id="g_id_onload" 
     data-client_id="690382963830-b4nlett0g0p76lvm1f8eacucnb24ak1p"
     data-callback="redireccionar">
     </div>
-    <div class="g_id_signin" data-type="standard"></div>
+    <div class="g_id_signin  .d-flex justify-content-center" data-type="standard" ></div>
 </div>
+</div>
+
 
   </main>
   <footer class="text-muted">

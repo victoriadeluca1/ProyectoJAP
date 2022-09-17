@@ -40,7 +40,6 @@
   </nav>
   <main>
     <div class="container">
-      <p>Funcionalidad en desarrollo</p>
 <!-- product  -->
       <div class="container" id="product-container">
 
@@ -62,7 +61,7 @@
     <div class="container .container-sm">
         <h3>Comentar</h3>
         <label for="comentar">Tu opinion:</label><br>
-        <textarea  id="comentar" class="form-control" rows="3"></textarea>
+        <textarea  id="comentar" class="form-control" rows="3" onchange="enableButton()"></textarea>
         <br>
         <label for="score">Tu puntuacion</label>
         <select name="score" class="form-control" id="commentscore">
