@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function(){
         filteredProducts = currentProductsArray.products.filter(products => products.name.toLowerCase().includes(searchBar.value.toLowerCase()))
      }
        
-
     showProducts(filteredProducts);
 });
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
@@ -85,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //Sorting functions
+
 function sortByCostAsc(a,b){
     return a.cost - b.cost;
 }

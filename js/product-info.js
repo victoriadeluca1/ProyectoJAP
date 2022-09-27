@@ -4,7 +4,6 @@ let comment = document.getElementById("comentar");
 
 //Muestra el producto seleccionado
 function showProduct(array){ 
-     
      let htmlContentToAppend = `
                 <h5 style="padding-top: 10px"><b>${array.name}</b></h5>
                 <hr/>
@@ -17,12 +16,80 @@ function showProduct(array){
                 <b class="font-weight-bold">Cantidad de vendidos</b><br>
                 <p>${array.soldCount}</p>
             `  
-            for (var i = 0; i < array.images.length; i++) {
-                htmlContentToAppend +=`<img class="img-thumbnail" width="200rem"src="${array.images[i]}">`
-            }
-        document.getElementById("product-container").innerHTML = htmlContentToAppend;
-        }
+            document.getElementById("product-container").innerHTML = htmlContentToAppend;          
+}
 
+function setCatID(id) {
+    localStorage.setItem("catID", id);
+}
+
+function setProductID(id) {
+localStorage.setItem("productID", id);
+window.location = "product-info.html"
+}
+
+function showRelated(array){
+
+    let htmlContentToAppend = "";
+    for(let i = 0; i < array.length; i++){
+        let products = array[i];
+            htmlContentToAppend += `
+            <div class="col-sm .px-2 p-3">
+            <div class="card">
+            <div onclick="setProductID(${products.id})" class="list-group-item list-group-item-action cursor-active">
+            <b class="mb-1">${products.name}</b>
+                        <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
+                        <p class="mb-1">${products.description}</p>
+                    </div>
+            </div>
+            </div>
+            `
+        document.getElementById("related_products").innerHTML = htmlContentToAppend;
+        }
+    }
+
+function showImages(array) {
+
+    let imageshtml = "";
+    imageshtml += `
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="${array.images[0]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${array.images[1]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${array.images[2]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${array.images[3]}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+    `
+
+    document.getElementById("product-images-container").innerHTML = imageshtml;          
+}
+
+
+//Comentarios
 function showComments(array) { 
     let htmlContentToAppend = "";
      array.forEach(comment => {
@@ -35,10 +102,10 @@ function showComments(array) {
       for (let i= commentScore+1; i <= 5; i++){
           htmlScore += `<i class="far fa-star"></i>`
       }  
-                  htmlContentToAppend += `
-                  <li class="list-group-item"> 
-                  <b>${comment.user}</b><small> ${comment.dateTime}</small> <span>${htmlScore}</span>
-                  <br>${comment.description}</li>`
+         htmlContentToAppend += `
+         <li class="list-group-item"> 
+         <b>${comment.user}</b><small> ${comment.dateTime}</small> <span>${htmlScore}</span>
+         <br>${comment.description}</li>`
      });
         document.getElementById("comments").innerHTML = htmlContentToAppend;
 };
@@ -49,16 +116,21 @@ function showComments(array) {
             if (resultObj.status === "ok"){
                 productArray = resultObj.data;
                 showProduct(productArray)
+                showImages(productArray)
             };
         });
     });
+    getJSONData(CATEGORY).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            currentProductsArray = resultObj.data;
+            showRelated(currentProductsArray.products)
+        };
+    });
+
         getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
             if (resultObj.status === "ok"){
                 commentsArray = resultObj.data;
             };
-
-            
-          
            
     document.getElementById("sendComment").addEventListener("click", function(){
         
@@ -86,6 +158,7 @@ function showComments(array) {
 })
 showComments(commentsArray);
     });
+
 
     function enableButton() {
         if (comment.value === "") {

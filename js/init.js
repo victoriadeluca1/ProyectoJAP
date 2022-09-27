@@ -40,3 +40,8 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+document.getElementById("cerrar_sesion").addEventListener("click", function() {
+  localStorage.removeItem("Email");
+  window.location = "index.html";
+});

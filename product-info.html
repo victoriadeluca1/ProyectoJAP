@@ -32,26 +32,49 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="navbarEmail"></a>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarEmail" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><button class="dropdown-item" id="cerrar_sesion">Cerrar Sesión</button></li>
+              </ul>
+            </div>
           </li>
+                  </ul>
+                </div>
+              </div>
         </ul>
       </div>
     </div>
   </nav>
+
   <main>
-    <div class="container">
+
+    <div class="row" id="main-product-container">
 <!-- product  -->
+<div class="col">
       <div class="container" id="product-container">
 
       </div>
-      <div class="container" id="product-images-container">
-        
+    </div>
+
+<!-- imagenes del producto -->
+<div class="col">
+  <div class="d-flex align-items-center"></div>
+      <div class="container" id="product-images-container" >
+
 
       </div>
-      <!-- lol, test container for scores. -->
-      <div class="container"  id="scores"></div>
+      </div>
+  </div>
+</div>
 
-      <div  class="container"></div>
+
+<!-- comentarios -->
+      <div class="container">
       <hr>
         <h3>Comments</h3>
         <ul id="comments">
@@ -60,6 +83,7 @@
     </div>
     <div class="container .container-sm">
         <h3>Comentar</h3>
+        <div id="graficos">
         <label for="comentar">Tu opinion:</label><br>
         <textarea  id="comentar" class="form-control" rows="3" onchange="enableButton()"></textarea>
         <br>
@@ -73,7 +97,16 @@
         </select> 
         <br>
         <button id="sendComment" class="btn btn-primary">Enviar</button>
+      </div>
     </div>
+
+<!-- productos relacionados -->
+    <div class="row" id="related_products">
+
+      
+
+    </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
