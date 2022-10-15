@@ -39,11 +39,92 @@
     </div>
   </nav>
   <main>
+    <p></p>
+    <div class="container" style="margin:40px">
+    <div class="container" id="cart-container" >
+      <h1 class="text-center">Carrito de compras</h1>
+      <h4>Articulos a comprar</h4>
+
+    </div>
+    <div class="table-responsive" >
+      <table class="table align-middle">
+        <thead>
+
+        </thead>
+        <tbody id="table">
+
+          <tr>
+            <td></td>
+            <td><b>Nombre</b></td>
+            <td><b>Costo</b></td>
+            <td><b>Cantidad</b></td>
+            <td><b>Subtotal</b></td> 
+
+            <!-- <td class="align-top">This cell is aligned to the top.</td> -->
+          </tr>
+<tr>
+  <td id="img">
+    
+  </td>
+  <td id="name"></td>
+  <td id="price"></td>
+<td>
+            <select onchange="subtotal(cartArray)" class="form-control" id="cantidad">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </td>
+
+              <td id="subtotal">
+          <p>USD</p>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <h3>Tipo de envío</h3>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          Premium
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Express
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Standard
+        </label>
+      </div>
+
+      <h3>Dirección de envío</h3>
+      <div class="form-group">
+        <label for="calle" class="form-label">Calle</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="calle" aria-describedby="basic-addon3">
+      </div>
+        <label for="numero" class="form-label">Numero</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="numero" aria-describedby="basic-addon3">
+      </div>
+      <label for="esquina" class="form-label">Esquina</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="esquina" aria-describedby="basic-addon3">
       </div>
     </div>
+    <hr>
+    <button class="btn btn-primary">Comprar</button>
+  </div>
   </main>
   <footer class="text-muted">
     <div class="container">

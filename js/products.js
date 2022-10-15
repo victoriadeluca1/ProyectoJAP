@@ -29,16 +29,17 @@ let searchButton = document.getElementById("searchBtn");
             document.getElementById("subtitle").innerHTML = `Verás aquí todos los productos de la categoría ${currentProductsArray.catName}`;
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
         }
-    }
+    };
+
 
 function setCatID(id) {
         localStorage.setItem("catID", id);
-    }
+    };
 
     function setProductID(id) {
 localStorage.setItem("productID", id);
 window.location = "product-info.html"
-    }
+    };
     
 document.addEventListener("DOMContentLoaded", function(){
     getJSONData(CATEGORY).then(function(resultObj){
