@@ -1,6 +1,19 @@
 let productArray = [];
 let commentsArray = [];
 let comment = document.getElementById("comentar");
+let productos_comprados = [];
+
+
+function comprar(id) {
+ if(localStorage.getItem("comprado") != null) {
+  productos_comprados = JSON.parse(localStorage.getItem("comprado"));
+};
+ if (!productos_comprados.includes(id)){
+   productos_comprados.push(id);
+   localStorage.setItem("comprado", JSON.stringify(productos_comprados)); 
+ }
+
+};
 
 //Muestra el producto seleccionado
 function showProduct(array){ 
@@ -15,6 +28,7 @@ function showProduct(array){
                 <p>${array.category}</p>
                 <b class="font-weight-bold">Cantidad de vendidos</b><br>
                 <p>${array.soldCount}</p>
+                <button onclick="comprar(${array.id})" class="btn btn-primary">Comprar</button>
             `  
             document.getElementById("product-container").innerHTML = htmlContentToAppend;          
 }
@@ -157,6 +171,7 @@ function showComments(array) {
     document.getElementById("comments").innerHTML += newComment;
 })
 showComments(commentsArray);
+
     });
 
 

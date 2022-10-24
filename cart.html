@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="inicio.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -32,12 +32,24 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+
+<li class="nav-item">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarEmail" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+      <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+      <li><button class="dropdown-item" id="cerrar_sesion">Cerrar Sesión</button></li>
+    </ul>
+  </div>
+</li>
         </ul>
       </div>
     </div>
   </nav>
+
   <main>
     <p></p>
     <div class="container" style="margin:40px">
@@ -60,32 +72,16 @@
             <td><b>Cantidad</b></td>
             <td><b>Subtotal</b></td> 
 
-            <!-- <td class="align-top">This cell is aligned to the top.</td> -->
           </tr>
 <tr>
   <td id="img">
     
   </td>
-  <td id="name"></td>
-  <td id="price"></td>
 <td>
-            <select onchange="subtotal(cartArray)" class="form-control" id="cantidad">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </td>
-
-              <td id="subtotal">
-          <p>USD</p>
-              </td>
-            </tr>
+           
         </tbody>
       </table>
     </div>
-    <hr>
     <div class="container">
       <h3>Tipo de envío</h3>
       <div class="form-check">
@@ -122,9 +118,130 @@
         <input type="text" class="form-control" id="esquina" aria-describedby="basic-addon3">
       </div>
     </div>
-    <hr>
-    <button class="btn btn-primary">Comprar</button>
+
+<br>
+<div class="container">
+  <h3>Costos</h3>
+    <table class="table">
+      <thead>
+        <tr>
+        </tr>
+        <br>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Sub Total -
+            <p>
+              Costo unitario del producto por cantidad -
+            </p>
+             </th>
+
+          <td id="subtotalGeneral"></td>
+
+        </tr>
+        <tr>
+          <th  scope="row">Costo de Envío:
+            <p>
+              Según el tipo de envío -
+            </p>
+
+          </th>
+
+          <td id="costoEnvio"></td>
+
+        </tr>
+        <tr>
+          <th scope="row">Total ($) -</th>
+          <td id="costoTotal" colspan="2"></td>
+
+        </tr>
+
+        <br>
+
+      </tbody>
+    </table>
+    </div>
+
+  <!-- </div>
+<hr>
+  <div class="container">
+    <h3>Costos</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+       <p>Subtotal</p> 
+       <p class="small fw-lighter">Costo unitario del producto por cantidad.</p>
+      </li>
+      <li class="list-group-item">Costo de envío
+        <p class="small fw-lighter">Según el tipo de envío.</p>
+      </li>
+      
+      <li class="list-group-item">
+        <p>Total($)</p>
+      </li>
+      </ul>
+     
+  </div> -->
+  <hr>
+  <div>
+
+    <h3>Forma de pago</h3>
+    <p>No ha seleccionado</p> 
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Seleccionar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Tarjeta de crédito
+          </label>
+          <hr>
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+          <label for="tarjeta" class="form-label">Número de tarjeta</label>
+          <input class="form-control" id="tarjeta" aria-describedby="emailHelp">
+        </div>
+          <div class="col-auto">
+           <label for="codigo" class="form-label">Código de seg.</label>
+          <input class="form-control" id="codigo" aria-describedby="emailHelp">
+        </div>
+      </div>
+          <br>
+          <label for="vencimiento" class="form-label">Vencimiento (MM/AA)</label>
+          <input class="form-control" id="vencimiento" aria-describedby="emailHelp">
+<hr>
+<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Transferencia bancaria
+          </label>
+          <hr>
+          <br>
+          <label for="NroDecuenta" class="form-label">Número de cuenta</label>
+          <input class="form-control" id="NroDecuenta" aria-describedby="emailHelp">
+
+
+      </div>
+    </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
+  
+  </div>
+  <hr>
+  <button class="btn btn-primary">Comprar</button>
   </main>
   <footer class="text-muted">
     <div class="container">
