@@ -6,39 +6,6 @@ let subtotalGeneral = document.getElementById("subtotalGeneral");
 let costoEnvio = document.getElementById("costoEnvio");
 let costoTotal = document.getElementById("costoTotal");
 
-// function showCart1(array){
-
-//   for (let i = 0; i < array.length; i++) {
-//     let htmlContentIMG = "";
-
-//   htmlContentIMG = `
-//   <tr>
-
-//   <td>
-//   <img src="${array[i].image}" style="max-width:100px">
-// </td>
-// <td>
-// <p><b>${array[i].name}</b></p>
-// </td>
-// <td>
-// <p>${array[i].currency}${array[i].cost}</p>
-// </td>
-
-// <td>
-// <input id="${array[i].id}cantidad" class="quantity cant col-5 text-center" min="1" max="999999" name="quantity" value="1"
-//  type="number" onchange="subtotal(${array[i].cost},${array[i].id})">
-// </td>
-
-// <td>
-// <p id="${array[i].id}subtotal">${array[i].cost*1}</p>
-// </td>
-
-// </tr>
-// `
-
-// document.getElementById("table").innerHTML += htmlContentIMG;   
-//   }
-// }
 
 function subtotales() {
   let subTotales = document.getElementsByClassName("subtotalClase");
@@ -127,6 +94,40 @@ document.addEventListener("DOMContentLoaded", function(){
 };
 });
 
+
+// function showCart1(array){
+
+//   for (let i = 0; i < array.length; i++) {
+//     let htmlContentIMG = "";
+
+//   htmlContentIMG = `
+//   <tr>
+
+//   <td>
+//   <img src="${array[i].image}" style="max-width:100px">
+// </td>
+// <td>
+// <p><b>${array[i].name}</b></p>
+// </td>
+// <td>
+// <p>${array[i].currency}${array[i].cost}</p>
+// </td>
+
+// <td>
+// <input id="${array[i].id}cantidad" class="quantity cant col-5 text-center" min="1" max="999999" name="quantity" value="1"
+//  type="number" onchange="subtotal(${array[i].cost},${array[i].id})">
+// </td>
+
+// <td>
+// <p id="${array[i].id}subtotal">${array[i].cost*1}</p>
+// </td>
+
+// </tr>
+// `
+
+// document.getElementById("table").innerHTML += htmlContentIMG;   
+//   }
+// }
 
 //LA FUNCION QUE MOSTRABA EL AUTO DE LA ENTREGA5
 // function showCart(array){
