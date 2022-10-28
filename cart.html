@@ -9,9 +9,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+ 
 </head>
 
 <body>
@@ -33,18 +31,19 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
 
-<li class="nav-item">
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarEmail" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown button
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-      <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-      <li><button class="dropdown-item" id="cerrar_sesion">Cerrar Sesión</button></li>
-    </ul>
-  </div>
-</li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarEmail" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Usuario
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><button class="dropdown-item" id="cerrar_sesion">Cerrar Sesión</button></li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -52,197 +51,182 @@
 
   <main>
     <p></p>
-    <div class="container" style="margin:40px">
-    <div class="container" id="cart-container" >
-      <h1 class="text-center">Carrito de compras</h1>
-      <h4>Articulos a comprar</h4>
+    <!-- <div class="container" style="margin:40px"> -->
+      <div class="container" id="cart-container">
+        <h1 class="text-center">Carrito de compras</h1>
+        <h4>Articulos a comprar</h4>
 
+     
     </div>
-    <div class="table-responsive" >
-      <table class="table align-middle">
-        <thead>
 
-        </thead>
-        <tbody id="table">
+    <!-- TABLA CCARRITO -->
+   <div class="tablaCart" id="table">
+     <table class="table">
+       <thead class="thead-dark">
+         <tr>
+           <th class="col-2">Imagen</th>
+           <th class="col-2">Nombre</th>
+           <th class="col-2">Costo/unidad</th>
+           <th class="col-2">Cantidad</th>
+           <th class="col-2">Subtotal</th>
+         </tr>
 
-          <tr>
-            <td></td>
-            <td><b>Nombre</b></td>
-            <td><b>Costo</b></td>
-            <td><b>Cantidad</b></td>
-            <td><b>Subtotal</b></td> 
+       </thead>
 
-          </tr>
-<tr>
-  <td id="img">
-    
-  </td>
-<td>
-           
-        </tbody>
-      </table>
-    </div>
-    <div class="container">
+     </table>
+   </div>
+
+   <!-- TIPO DE ENVIO -->
+
+<form onsubmit="return false" class="row g-3 needs-validation" id="formDireccion" novalidate>
+
       <h3>Tipo de envío</h3>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+        <input class="form-check-input" type="radio" name="envioSelect" value="15" id="flexRadioDefault1" checked>
         <label class="form-check-label" for="flexRadioDefault1">
           Premium
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <input class="form-check-input" type="radio" name="envioSelect" value="7" id="flexRadioDefault2">
         <label class="form-check-label" for="flexRadioDefault2">
           Express
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-        <label class="form-check-label" for="flexRadioDefault2">
+        <input class="form-check-input" type="radio" name="envioSelect" value="5" id="flexRadioDefault22345">
+        <label class="form-check-label" for="flexRadioDefault22345">
           Standard
         </label>
       </div>
 
-      <h3>Dirección de envío</h3>
-      <div class="form-group">
-        <label for="calle" class="form-label">Calle</label>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" id="calle" aria-describedby="basic-addon3">
-      </div>
-        <label for="numero" class="form-label">Numero</label>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" id="numero" aria-describedby="basic-addon3">
-      </div>
-      <label for="esquina" class="form-label">Esquina</label>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" id="esquina" aria-describedby="basic-addon3">
-      </div>
-    </div>
 
-<br>
-<div class="container">
-  <h3>Costos</h3>
-    <table class="table">
-      <thead>
-        <tr>
-        </tr>
-        <br>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Sub Total -
-            <p>
-              Costo unitario del producto por cantidad -
-            </p>
-             </th>
-
-          <td id="subtotalGeneral"></td>
-
-        </tr>
-        <tr>
-          <th  scope="row">Costo de Envío:
-            <p>
-              Según el tipo de envío -
-            </p>
-
-          </th>
-
-          <td id="costoEnvio"></td>
-
-        </tr>
-        <tr>
-          <th scope="row">Total ($) -</th>
-          <td id="costoTotal" colspan="2"></td>
-
-        </tr>
-
-        <br>
-
-      </tbody>
-    </table>
-    </div>
-
-  <!-- </div>
-<hr>
-  <div class="container">
-    <h3>Costos</h3>
-    <ul class="list-group">
-      <li class="list-group-item">
-       <p>Subtotal</p> 
-       <p class="small fw-lighter">Costo unitario del producto por cantidad.</p>
-      </li>
-      <li class="list-group-item">Costo de envío
-        <p class="small fw-lighter">Según el tipo de envío.</p>
-      </li>
-      
-      <li class="list-group-item">
-        <p>Total($)</p>
-      </li>
-      </ul>
+        <h3>Dirección de envío</h3>
      
-  </div> -->
-  <hr>
-  <div>
-
-    <h3>Forma de pago</h3>
-    <p>No ha seleccionado</p> 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Seleccionar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
-            Tarjeta de crédito
-          </label>
-          <hr>
-          <div class="row g-3 align-items-center">
-            <div class="col-auto">
-          <label for="tarjeta" class="form-label">Número de tarjeta</label>
-          <input class="form-control" id="tarjeta" aria-describedby="emailHelp">
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">Calle</label>
+          <input type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Llenar campo
+          </div>
         </div>
-          <div class="col-auto">
-           <label for="codigo" class="form-label">Código de seg.</label>
-          <input class="form-control" id="codigo" aria-describedby="emailHelp">
+        <div class="col-md-3">
+          <label for="validationCustom03" class="form-label">Número</label>
+          <input type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Llenar campo
+          </div>
         </div>
-      </div>
-          <br>
-          <label for="vencimiento" class="form-label">Vencimiento (MM/AA)</label>
-          <input class="form-control" id="vencimiento" aria-describedby="emailHelp">
-<hr>
-<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
-            Transferencia bancaria
-          </label>
-          <hr>
-          <br>
-          <label for="NroDecuenta" class="form-label">Número de cuenta</label>
-          <input class="form-control" id="NroDecuenta" aria-describedby="emailHelp">
+        <div class="col-md-3">
+          <label for="validationCustom03" class="form-label">Esquina</label>
+          <input type="text" class="form-control" id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Llenar campo
+          </div>
+        </div>
+      <hr>
+      <br>
+        <h3>Costos</h3>
+        <table class="table table-sm col-8">
+          <tbody>
+            <tr>
+              <th class="col-4">
+                <p class="text-start">Subtotal</p>
+              </th>
+              <td class="text-end"><span>USD </span><span id="costoProductos">0</span></td>
 
+            </tr>
+            <tr>
+              <th class="col-4">Costo de Envío</th>
+              <td class="text-end"><span>USD</span>
+                <span id="costoEnvio">0</span>
+              </td>
 
-      </div>
-    </form>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+            </tr>
+            <tr>
+              <th class="col-4">Total</th>
+              <td class="text-end"><span>USD </span><span id="costoTotal">0</span></td>
+
+            </tr>
+          </tbody>
+        </table>
+
+ 
+      <hr>
+
+        <h3>Forma de pago</h3>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Seleccionar
+        </button>
+        <div class="invalid-feedback" id="modalFeedback">
+            Seleccione un metodo de pago
+        </div>
+    <hr>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit form</button>
     </div>
+  </form>
+
+  <div class="alert alert-success alert-dismissible fade" id="alertSuccess" role="alert">
+    Bien hechooo
   </div>
-  
-  </div>
-  <hr>
-  <button class="btn btn-primary">Comprar</button>
+
+        <!-- Modal -->
+        <div class="was-validated">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <input onclick="modal()" class="form-check-input" type="radio" name="formaDePago" id="tarjeta" value="1" checked>
+                  <label class="form-check-label" for="tarjeta">
+                    Tarjeta de crédito
+                  </label>
+                  <hr>
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="numTarjeta" class="form-label">Número de tarjeta</label>
+                      <input class="form-control" id="numTarjeta" aria-describedby="emailHelp">
+                    </div>
+                    <div class="col-auto">
+                      <label for="codigo" class="form-label">Código de seg.</label>
+                      <input class="form-control" id="codigo" aria-describedby="emailHelp">
+                    </div>
+                  </div>
+                  <br>
+                  <label for="vencimiento" class="form-label">Vencimiento (MM/AA)</label>
+                  <input class="form-control" id="vencimiento" aria-describedby="emailHelp">
+                  <hr>
+                  <input onclick="modal()" class="form-check-input" type="radio" name="formaDePago" id="transBancaria" value="2">
+                  <label class="form-check-label" for="transBancaria">
+                    Transferencia bancaria
+                  </label>
+                  <hr>
+                  <br>
+                  <label for="nroDeCuenta" class="form-label">Número de cuenta</label>
+                  <input class="form-control" id="nroDeCuenta" aria-describedby="emailHelp">
+
+                </form>
+                <div class="modal-footer">
+                  <button onclick="modal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -262,5 +246,9 @@
     </div>
   </div>
 
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
 </body>
+
 </html>

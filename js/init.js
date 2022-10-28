@@ -41,7 +41,7 @@ let getJSONData = function(url){
     });
 }
 
-document.getElementById("cerrar_sesion").addEventListener("click", function() {
-  localStorage.removeItem("Email");
-  window.location = "index.html";
-});
+// document.getElementById("cerrar_sesion").addEventListener("click", function() {
+//   localStorage.removeItem("Email");
+//   window.location = "index.html";
+// });
