@@ -1,6 +1,4 @@
-    let email = localStorage.getItem("Email");
-    let link = document.getElementById("navbarEmail");
-    link.innerHTML = email;
+
 
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("autos").addEventListener("click", function() {

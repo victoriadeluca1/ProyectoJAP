@@ -41,7 +41,11 @@ let getJSONData = function(url){
     });
 }
 
-// document.getElementById("cerrar_sesion").addEventListener("click", function() {
-//   localStorage.removeItem("Email");
-//   window.location = "index.html";
-// });
+let email = localStorage.getItem("Email");
+let link = document.getElementById("navbarEmail");
+link.innerHTML = email;
+
+document.getElementById("cerrar_sesion").addEventListener("click", function() {
+  localStorage.removeItem("Email");
+  window.location = "index.html";
+});
