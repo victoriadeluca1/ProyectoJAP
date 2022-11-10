@@ -43,9 +43,30 @@ let getJSONData = function(url){
 
 let email = localStorage.getItem("Email");
 let link = document.getElementById("navbarEmail");
-link.innerHTML = email;
 
 document.getElementById("cerrar_sesion").addEventListener("click", function() {
   localStorage.removeItem("Email");
   window.location = "index.html";
 });
+
+
+function navBarImg() {
+let navBarImg = document.getElementById("navBarImg");
+
+if (localStorage.getItem("profilePicture") !== null) {
+
+  link.innerHTML = 
+  `<img class="rounded d-inline pe-2" style="max-width:40px" src="${localStorage.getItem("profilePicture")}"><p class="d-inline" id="emailName"></p>`
+
+  document.getElementById("emailName").innerHTML = email
+ }
+ else {
+  link.innerHTML = 
+  `<img class="rounded d-inline pe-2" style="max-width:40px" src="blank-profile-picture.jpg"><p class="d-inline" id="emailName"></p>`
+
+  document.getElementById("emailName").innerHTML = email
+ }
+
+}
+
+navBarImg()

@@ -19,6 +19,7 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
@@ -31,19 +32,18 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
 
-          <li class="nav-item">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarEmail" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Usuario
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-                <li><button class="dropdown-item" id="cerrar_sesion">Cerrar Sesión</button></li>
-              </ul>
-            </div>
-          </li>
+          <div id="navBarImg"></div> 
+<li class="nav-item">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarEmail" data-bs-toggle="dropdown" aria-expanded="false">
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+      <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+      <li><button class="dropdown-item" id="cerrar_sesion">Cerrar Sesión</button></li>
+    </ul>
+  </div>
+</li>
         </ul>
       </div>
     </div>
@@ -59,7 +59,7 @@
      
     </div>
 
-    <!-- TABLA CCARRITO -->
+    <!-- CART TABLE -->
    <div class="tablaCart" id="table">
      <table class="table">
        <thead class="thead-dark">
@@ -156,7 +156,7 @@
 
         <h3>Forma de pago</h3>
 
-        <!-- Button trigger modal -->
+        <!-- BUTTON TRIGGER MODAL -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Seleccionar
         </button>
@@ -173,7 +173,7 @@
     Compra realizada con éxito.
   </div>
 
-        <!-- Modal -->
+        <!-- MODAL -->
         <div class="was-validated">
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
           aria-labelledby="staticBackdropLabel" aria-hidden="true">
