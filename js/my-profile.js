@@ -58,7 +58,10 @@ let formForHTML = ""
 
 if (localStorage.getItem("Email") == null) {
   formForHTML= `
+  <p></p>
+  <div class="row g-3 d-flex justify-content-center">
   <p>Para iniciar sesión, haz click <a onclick="${localStorage.clear}" href="index.html">aquí</a>.</p>
+  </div>
   `
 
   wholeProfile.innerHTML = formForHTML
@@ -144,8 +147,8 @@ if (localStorage.getItem("Email") == null) {
  profile.innerHTML = formForHTML
  } else {
   formForHTML= `
- <form class="needs-validation" novalidate>
- <div class="row g-3">
+  <form class="needs-validation " novalidate>
+ <div class="row g-3 d-flex justify-content-center">
  <div class="col-md-4">
    <label for="validationCustom01" class="form-label">Nombre*</label>
    <input type="text" class="form-control" id="ProfileInputName"  required>
@@ -154,26 +157,26 @@ if (localStorage.getItem("Email") == null) {
  </div>
  </div>
  <div class="col-md-4">
-   <label for="validationCustom02" class="form-label">Segundo Nombre</label>
+   <label for="validationCustom02" class="form-label"  >Segundo Nombre</label>
    <input type="text" class="form-control" id="ProfileInputName2">
  </div>
 </div>
-<div class="row">
+<div class="row d-flex justify-content-center">
  <div class="col-md-4">
-   <label for="validationCustom03" class="form-label">Apellido*</label>
-   <input type="text" class="form-control" id="validationCustom03" required>
+   <label for="validationCustom03" class="form-label" >Apellido*</label>
+   <input type="text" class="form-control" id="validationCustom03" required> 
    <div class="invalid-feedback">
        Requerido.
      </div>
  </div>
  <div class="col-md-4">
-   <label for="validationCustom01" class="form-label">Segundo apellido</label>
-   <input type="text" class="form-control" id="validationCustom01">
+   <label for="validationCustom01" class="form-label" >Segundo apellido</label>
+   <input type="text" class="form-control" id="validationCustom01" >
  </div>
 </div>
 
 
-<div class="row">
+<div class="row d-flex justify-content-center">
 
 <div class="col-md-4">
    <label for="validationCustomUsername" class="form-label">Email*</label>
@@ -191,15 +194,18 @@ if (localStorage.getItem("Email") == null) {
  <label for="validationCustom02" class="form-label">Télefono de contacto</label>
  <input type="text" class="form-control" id="validationCustom02">
  </div>
-</div>
-</div>
+<p></p>
+
 <p></p>
 
  <hr>
- <div class="col-12">
-   <button onclick="validation()" class="btn btn-primary" type="submit" >Submit form</button>
+ <div class="col-12 d-flex justify-content-center">
+
+ </div>
+   <button onclick="validation()" class="btn btn-primary" type="submit" >Actualizar perfil</button>
  </div>
 </div>
+
 </form>
  `
 
